@@ -12,6 +12,9 @@ int main() {
 	int n;
 	cout << "Enter a number: ";
 	cin >> n;
-	cout << "Fibonacci's " << n << " : " << fibonacci(n) << endl;
+	cout << "Fibonacci series: ";
+	for (int i = 0; i < n; i++) {
+		cout << fibonacci(i) << " ";
+	}
 	return 0;
 }
