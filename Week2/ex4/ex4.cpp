@@ -26,9 +26,6 @@ int shipMinimumCapacity(int weights[], int n, int d) {
 		}
 	}
 	return low;
-	// 1 2 3 4 5 6 7 8 9 10
-	// 5 days
-	// low = 10 high = 55 mid = 32
 }
 
 int main() {
