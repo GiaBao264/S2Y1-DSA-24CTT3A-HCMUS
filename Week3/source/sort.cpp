@@ -72,7 +72,7 @@ void heapSort(vector<int>& a, int& comparisons) {
 }
 
 int partition(vector<int>& a, int low, int high, int& comparisons) {
-    int pivot = a[high];
+    int pivot = a[(low + high) / 2];
     int i = low - 1;
 
     for (int j = low; j < high; j++) {
