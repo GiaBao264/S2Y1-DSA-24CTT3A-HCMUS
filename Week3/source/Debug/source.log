@@ -1,11 +1,2 @@
 ﻿  main.cpp
-  sort.cpp
-C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\Week3\source\main.cpp(50,40): error C3861: 'selectionSort': identifier not found
-C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\Week3\source\main.cpp(52,42): error C3861: 'bubbleSort': identifier not found
-C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\Week3\source\main.cpp(54,41): error C3861: 'shellSort': identifier not found
-C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\Week3\source\main.cpp(56,41): error C3861: 'mergeSort': identifier not found
-C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\Week3\source\main.cpp(58,44): error C3861: 'countingSort': identifier not found
-C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\Week3\source\main.cpp(60,41): error C3861: 'flashSort': identifier not found
-C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\Week3\source\sort.cpp(4,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\Week3\source\sort.cpp(130,23): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
+  source.vcxproj -> C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\DSA - TH\Week3\Debug\source.exe

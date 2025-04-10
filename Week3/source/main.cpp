@@ -1,11 +1,27 @@
 ﻿#include "sort.h"
 
+string formatTime(double timeInSeconds) {
+    stringstream ss;
+    ss << fixed << setprecision(19) << timeInSeconds;
+
+    string result = ss.str();
+
+    result.erase(result.find_last_not_of('0') + 1, string::npos);
+
+    if (!result.empty() && result.back() == '.') {
+        result.pop_back();
+    }
+
+    return result;
+}
+
 bool readFile(const string& filename, vector<int>& a) {
     ifstream fin(filename);
     if (!fin.is_open()) return false;
 
     int n, x;
     a.clear();
+	fin >> n;
     for (int i = 0; i < n && fin >> x; i++) {
         a.push_back(x);
     }
@@ -14,7 +30,7 @@ bool readFile(const string& filename, vector<int>& a) {
     return true;
 }
 
-bool writeFile(const string& filename, const vector<int>& a, int comparisons) {
+bool writeFile(const string& filename, const vector<int>& a, int comparisons, double timeInSeconds) {
     ofstream fout(filename);
     if (!fout.is_open()) return false;
 
@@ -22,7 +38,8 @@ bool writeFile(const string& filename, const vector<int>& a, int comparisons) {
     for (int x : a) {
         fout << x << " ";
     }
-    fout << "\nComparisons: " << comparisons << "\n";
+    fout << "\nComparisons: " << comparisons;
+    fout << "\nTime (s): " << formatTime(timeInSeconds);
 
     fout.close();
     return true;
@@ -30,7 +47,7 @@ bool writeFile(const string& filename, const vector<int>& a, int comparisons) {
 
 int main(int argc, char* argv[]) {
     if (argc < 7) {
-        cout << "Usage: ./main.exe -a <algorithm> -i <input_file> -o <output_file>\n";
+        cout << "Usage: ./source.exe -a <algorithm> -i <input_file> -o <output_file>\n";
         return 1;
     }
 
@@ -46,6 +63,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    auto start = chrono::high_resolution_clock::now();
 
     if (algorithm == "selection-sort") selectionSort(a, comparisons);
     else if (algorithm == "insertion-sort") insertionSort(a, comparisons);
@@ -63,11 +81,15 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    if (!writeFile(outputFile, a, comparisons)) {
+    auto end = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
+    double timeInSeconds = duration.count() / 1e6;
+
+    if (!writeFile(outputFile, a, comparisons, timeInSeconds)) {
         cout << "Cannot write to output file.\n";
         return 1;
     }
 
-    cout << "Done! Output written to " << outputFile << "\n";
+    cout << "Output written to " << outputFile << "\n";
     return 0;
 }
