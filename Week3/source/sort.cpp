@@ -8,25 +8,22 @@ void insertionSort(vector<int>& a, int& comparisons) {
             a[j + 1] = a[j];
             j--;
         }
-        if (j >= 0) comparisons++;
+        if (j >= 0) ++comparisons;
         a[j + 1] = key;
     }
 }
 
 void shakerSort(vector<int>& a, int& comparisons) {
-    int left = 0;
-    int right = a.size() - 1;
+    int left = 0, right = a.size() - 1;
     while (left < right) {
         for (int i = left; i < right; i++) {
-            comparisons++;
-            if (a[i] > a[i + 1]) {
+            if (++comparisons, a[i] > a[i + 1]) {
                 swap(a[i], a[i + 1]);
             }
         }
         right--;
         for (int i = right; i > left; i--) {
-            comparisons++;
-            if (a[i] < a[i - 1]) {
+            if (++comparisons, a[i] < a[i - 1]) {
                 swap(a[i], a[i - 1]);
             }
         }
@@ -39,20 +36,12 @@ void heapify(vector<int>& a, int n, int i, int& comparisons) {
     int left = 2 * i + 1;
     int right = 2 * i + 2;
 
-    if (left < n) {
-        comparisons++;
-        if (a[left] > a[largest]) {
-            largest = left;
-        }
+    if (left < n && (++comparisons, a[left] > a[largest])) {
+        largest = left;
     }
-
-    if (right < n) {
-        comparisons++;
-        if (a[right] > a[largest]) {
-            largest = right;
-        }
+    if (right < n && (++comparisons, a[right] > a[largest])) {
+        largest = right;
     }
-
     if (largest != i) {
         swap(a[i], a[largest]);
         heapify(a, n, largest, comparisons);
@@ -74,10 +63,8 @@ void heapSort(vector<int>& a, int& comparisons) {
 int partition(vector<int>& a, int low, int high, int& comparisons) {
     int pivot = a[(low + high) / 2];
     int i = low - 1;
-
     for (int j = low; j < high; j++) {
-        comparisons++;
-        if (a[j] < pivot) {
+        if (++comparisons, a[j] < pivot) {
             i++;
             swap(a[i], a[j]);
         }
@@ -101,24 +88,24 @@ void countSortByDigit(vector<int>& a, int exp, int& comparisons) {
 
     for (int i = 0; i < n; i++) {
         int digit = (a[i] / exp) % 10;
-        comparisons++;
+        ++comparisons;
         count[digit]++;
     }
 
     for (int i = 1; i < 10; i++) {
-        comparisons++;
+        ++comparisons;
         count[i] += count[i - 1];
     }
 
     for (int i = n - 1; i >= 0; i--) {
         int digit = (a[i] / exp) % 10;
-        comparisons++;
+        ++comparisons;
         output[count[digit] - 1] = a[i];
         count[digit]--;
     }
 
     for (int i = 0; i < n; i++) {
-        comparisons++;
+        ++comparisons;
         a[i] = output[i];
     }
 }
@@ -128,24 +115,21 @@ void radixSort(vector<int>& a, int& comparisons) {
 
     int maxVal = a[0];
     for (int i = 1; i < a.size(); i++) {
-        comparisons++;
-        if (a[i] > maxVal)
+        if (++comparisons, a[i] > maxVal)
             maxVal = a[i];
     }
 
     for (int exp = 1; maxVal / exp > 0; exp *= 10) {
-        comparisons++;
+        ++comparisons;
         countSortByDigit(a, exp, comparisons);
     }
 }
 
 void selectionSort(vector<int>& a, int& comparisons) {
-    int n = a.size();
-    for (int i = 0; i < n - 1; i++) {
+    for (int i = 0; i < a.size() - 1; i++) {
         int min = i;
-        for (int j = i + 1; j < n; j++) {
-            comparisons++;
-            if (a[j] < a[min]) {
+        for (int j = i + 1; j < a.size(); j++) {
+            if (++comparisons, a[j] < a[min]) {
                 min = j;
             }
         }
@@ -154,11 +138,9 @@ void selectionSort(vector<int>& a, int& comparisons) {
 }
 
 void bubbleSort(vector<int>& a, int& comparisons) {
-    int n = a.size();
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            comparisons++;
-            if (a[j] > a[j + 1]) {
+    for (int i = 0; i < a.size() - 1; i++) {
+        for (int j = 0; j < a.size() - i - 1; j++) {
+            if (++comparisons, a[j] > a[j + 1]) {
                 swap(a[j], a[j + 1]);
             }
         }
@@ -171,11 +153,8 @@ void shellSort(vector<int>& a, int& comparisons) {
         for (int i = gap; i < n; i++) {
             int temp = a[i];
             int j;
-            for (j = i; j >= gap; j -= gap) {
-                comparisons++;
-                if (a[j - gap] > temp)
-                    a[j] = a[j - gap];
-                else break;
+            for (j = i; j >= gap && (++comparisons, a[j - gap] > temp); j -= gap) {
+                a[j] = a[j - gap];
             }
             a[j] = temp;
         }
@@ -183,29 +162,19 @@ void shellSort(vector<int>& a, int& comparisons) {
 }
 
 void merge(vector<int>& a, int left, int mid, int right, int& comparisons) {
-    int i = left, j = mid + 1, k = 0;
     vector<int> temp(right - left + 1);
-
+    int i = left, j = mid + 1, k = 0;
     while (i <= mid && j <= right) {
-        comparisons++;
-        if (a[i] <= a[j]) {
+        if (++comparisons, a[i] <= a[j]) {
             temp[k++] = a[i++];
         }
         else {
             temp[k++] = a[j++];
         }
     }
-
-    while (i <= mid) {
-        temp[k++] = a[i++];
-    }
-    while (j <= right) {
-        temp[k++] = a[j++];
-    }
-
-    for (int x = 0; x < k; x++) {
-        a[left + x] = temp[x];
-    }
+    while (i <= mid) temp[k++] = a[i++];
+    while (j <= right) temp[k++] = a[j++];
+    for (int x = 0; x < k; x++) a[left + x] = temp[x];
 }
 
 void mergeSort(vector<int>& a, int left, int right, int& comparisons) {
@@ -229,7 +198,7 @@ void countingSort(vector<int>& a, int& comparisons) {
     int index = 0;
     for (int i = 0; i <= max; i++) {
         while (count[i] > 0) {
-            comparisons++;
+            ++comparisons;
             a[index++] = i;
             count[i]--;
         }
@@ -256,7 +225,7 @@ void flashSort(vector<int>& a, int& comparisons) {
 
     vector<int> b(n);
     for (int i = n - 1; i >= 0; i--) {
-        comparisons++;
+        ++comparisons;
         int j = floor(c1 * (a[i] - min));
         b[l[j] - 1] = a[i];
         l[j]--;
