@@ -1,0 +1,13 @@
+﻿  BatchTest.cpp
+  sort.cpp
+C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\DataGeneration\sort.cpp(4,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\DataGeneration\sort.cpp(117,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\DataGeneration\sort.cpp(129,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\DataGeneration\sort.cpp(131,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\DataGeneration\sort.cpp(141,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\DataGeneration\sort.cpp(142,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\DataGeneration\sort.cpp(213,11): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\DataGeneration\sort.cpp(218,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\DataGeneration\sort.cpp(229,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
+  DataGeneration.vcxproj -> C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\DataGeneration\Debug\DataGeneration.exe
