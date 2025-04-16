@@ -1,0 +1,3 @@
+﻿  stack.cpp
+C:\Users\sv\source\repos\Week5\stack\stack.cpp(62,1): warning C4715: 'pop': not all control paths return a value
+  stack.vcxproj -> C:\Users\sv\source\repos\Week5\Debug\stack.exe
