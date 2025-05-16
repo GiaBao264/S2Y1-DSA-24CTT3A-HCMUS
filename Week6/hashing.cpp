@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <vector>
 #include <fstream>
 #include <sstream>
@@ -79,19 +79,23 @@ vector<Company> readCompanyInfo(const string& filename, const vector<string>& co
 
 	while (getline(file, line) && idx < company_names.size()) {
 		stringstream ss(line);
-		string profit_tax, address;
-		ss >> profit_tax;
-		getline(ss, address);
+		string name, profit_tax, address;
+
+		getline(ss, name, '|');
+		getline(ss, profit_tax, '|');
+		getline(ss, address, '|');
 
 		Company company;
 		company.name = company_names[idx];
 		company.profit_tax = profit_tax;
 		company.address = address;
+
 		companies.push_back(company);
 		++idx;
 	}
 	return companies;
 }
+
 
 void writeResults(const string& filename, const vector<Company>& companies) {
 	ofstream file(filename);
@@ -128,7 +132,7 @@ int main(int argc, char* argv[]) {
 
 	writeResults(argv[3], results);
 
-	cout << "Processing completed. Results are saved to " << argv[3] << endl;
+	cout << "Results are saved to " << argv[3] << endl;
 
 	return 0;
 }

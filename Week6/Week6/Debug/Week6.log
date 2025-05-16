@@ -1,6 +1,6 @@
 ﻿  hashing.cpp
-D:\Week6\hashing.cpp(26,20): warning C4018: '<': signed/unsigned mismatch
-D:\Week6\hashing.cpp(40,13): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-D:\Week6\hashing.cpp(48,12): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-D:\Week6\hashing.cpp(53,12): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-  Week6.vcxproj -> D:\Week6\Debug\Week6.exe
+C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\DSA - TH\Week6\hashing.cpp(26,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\DSA - TH\Week6\hashing.cpp(40,13): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\DSA - TH\Week6\hashing.cpp(48,12): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\DSA - TH\Week6\hashing.cpp(53,12): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  Week6.vcxproj -> C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\DSA - TH\Week6\Debug\Week6.exe
