@@ -1,0 +1,4 @@
+﻿  bai1.cpp
+C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\DSA - TH\Final\bai1\bai1.cpp(41,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\DSA - TH\Final\bai1\bai1.cpp(46,20): warning C4018: '<': signed/unsigned mismatch
+  bai1.vcxproj -> C:\Users\banba\OneDrive\Documents\HCMUS Study\Coding\DSA - TH\Final\Debug\bai1.exe
